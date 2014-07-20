@@ -37,4 +37,9 @@ while readAgain == True :
   
   #continue
   input()
+  
+print "Bye"
+
+
+  
 
