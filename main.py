@@ -21,18 +21,13 @@ AK8963_REG_CTRL1  = 0x0A
 AK8963_REG_CTRL2  = 0x0B
 
 #Init AK8963
-myI2c.write_byte_data(AK8963_ADDR, AK8963_REG_CTRL1, 0x12)
-myI2c.write_byte_data(AK8963_ADDR, AK8963_REG_CTRL2, 0x00)
-
-#Read WHOAMI register
-wai = myI2c.read_byte_data(AK8963_ADDR, AK8963_REG_WHOAMI)
+myI2c.write_byte_data(AK8963_ADDR, AK8963_REG_CTRL1, 0x16)
 
 #Read sensor value
 sampleBuffer = myI2c.read_i2c_block_data(AK8963_ADDR, AK8963_REG_HXL, 6)
 
 #Print data
-print "WHOAMI = ",wai
-print "magX = ",sampleBuffer[1]," ",sampleBuffer[0]
-print "magY = ",sampleBuffer[3]," ",sampleBuffer[2]
-print "magZ = ",sampleBuffer[5]," ",sampleBuffer[4]
+print "magX =",sampleBuffer[0] * 255 + sampleBuffer[1]
+print "magY =",sampleBuffer[2] * 255 + sampleBuffer[3]
+print "magZ =",sampleBuffer[4] * 255 + sampleBuffer[4]
 
