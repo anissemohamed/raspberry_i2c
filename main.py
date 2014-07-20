@@ -24,10 +24,12 @@ AK8963_REG_ST2    = 0x09
 AK8963_REG_CTRL1  = 0x0A
 AK8963_REG_CTRL2  = 0x0B
 
-#Init AK8963
-myI2c.write_byte_data(AK8963_ADDR, AK8963_REG_CTRL1, 0x16)
 
 while readAgain == True :
+  
+  #Init AK8963
+  myI2c.write_byte_data(AK8963_ADDR, AK8963_REG_CTRL1, 0x16)
+
   #Read sensor value
   sampleBuffer = myI2c.read_i2c_block_data(AK8963_ADDR, AK8963_REG_HXL, 6)
   
