@@ -36,9 +36,5 @@ while readAgain == True :
   print "magZ =",sampleBuffer[4] * 255 + sampleBuffer[4]
   
   #continue
-  tmp = input("read again ? (Y/N)")
-  if(tmp == ('y' or 'Y')):
-    readAgain = False
-  if(tmp == ('n' or 'N')):
-    readAgain = True
+  input()
 
