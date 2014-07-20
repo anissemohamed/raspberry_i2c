@@ -1,3 +1,4 @@
+import time
 import smbus
 
 #Init I2C port 1
@@ -35,10 +36,8 @@ while readAgain == True :
   print "magY =",sampleBuffer[2] * 255 + sampleBuffer[3]
   print "magZ =",sampleBuffer[4] * 255 + sampleBuffer[4]
   
-  #continue
-  input()
-  
-print "Bye"
+  #Delay
+  time.sleep(1)
 
 
   
