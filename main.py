@@ -37,8 +37,8 @@ while readAgain == True :
   
   #continue
   tmp = input("read again ? (Y/N)")
-  if(tmp == "y" or "Y"):
+  if(tmp == ('y' or 'Y')):
     readAgain = False
-  if(tmp == "n" or "N"):
+  if(tmp == ('n' or 'N')):
     readAgain = True
 
