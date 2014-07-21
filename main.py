@@ -4,11 +4,7 @@ from csv import*
 
 #Open CSV file
 outputFile = open('./MAG_log.csv', 'wb')
-outputFile.seek(0, 0)
-
-#Write header
 writer = writer(outputFile,  delimiter=';', quotechar='"')
-writer.writerow(['magX', 'magY', 'magZ'])
 
 #Init nbLine
 lineNb = 1
@@ -27,11 +23,7 @@ while 1 :
   magZ = sampleBuffer[4] * 255 + sampleBuffer[5]
   
   #Print data onto the CSV file
-  if(lineNb == 32):
-    lineNb = 1
-  else:
-    lineNb += 1
-  outputFile.seek(lineNb, 0)
+  outputFile.seek(0, 2)
   writer.writerow([magX, magY, magZ])
   
   #Print data
