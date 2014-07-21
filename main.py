@@ -27,7 +27,7 @@ while 1 :
   print "magZ =",magZ
   
   #Delay
-  time.sleep(1)
+  sleep(1)
   
 
 
