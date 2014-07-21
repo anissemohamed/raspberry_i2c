@@ -20,7 +20,7 @@ while 1 :
   
   #Print data onto the CSV file
   outputFile.seek(0, 2)
-  writer.writerows([magX, magY, magZ])
+  writer.writerow([magX, magY, magZ])
   
   #Print data
   print "magX =",magX
