@@ -3,7 +3,7 @@ from sensor_AK8963 import*
 from csv import*
 
 outputFile = open('./MAG_log.csv', 'wb')
-writer = writer(outputFile,  delimiter='\t', quotechar='"')
+writer = writer(outputFile,  delimiter=';', quotechar='"')
 
 while 1 :
   
@@ -19,7 +19,7 @@ while 1 :
   magZ = sampleBuffer[4] * 255 + sampleBuffer[5]
   
   #Print data onto the CSV file
-  #TODO
+  writer.writerow([magX, magY, magZ])
   
   #Print data
   print "magX =",magX
