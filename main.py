@@ -5,10 +5,10 @@ from csv import*
 outputFile = open('./MAG_log.csv', 'wb')
 writer = writer(outputFile,  delimiter=';', quotechar='"')
 
+#Start AK8963
+AK8963_start()
+
 while 1 :
-  
-  #Start AK8963
-  AK8963_start()
 
   #Read sensor value
   sampleBuffer = AK8963_read()
@@ -19,7 +19,8 @@ while 1 :
   magZ = sampleBuffer[4] * 255 + sampleBuffer[5]
   
   #Print data onto the CSV file
-  writer.writerow([magX, magY, magZ])
+  outputFile.seek(0, 2)
+  writer.writerows([magX, magY, magZ])
   
   #Print data
   print "magX =",magX
