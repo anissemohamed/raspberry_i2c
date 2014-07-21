@@ -20,9 +20,15 @@ AK8963_REG_ST2    = 0x09
 AK8963_REG_CTRL1  = 0x0A
 AK8963_REG_CTRL2  = 0x0B
 
-def AK8963_start():
-  myI2c.write_byte_data(AK8963_ADDR, AK8963_REG_CTRL1, 0x16)
+def AK8963_whoAmI():
+  return myI2c.read_byte_data(AK8963_ADDR, AK8963_REG_WHOAMI)
   
+def AK8963_start():
+  if(AK8963_whoAmI() == 0x48):
+    myI2c.write_byte_data(AK8963_ADDR, AK8963_REG_CTRL1, 0x16)
+  else
+    print "error : Can't read WHOAMI register !"
+    
 def AK8963_stop():
   myI2c.write_byte_data(AK8963_ADDR, AK8963_REG_CTRL1, 0x00)
   
@@ -30,6 +36,8 @@ def AK8963_read():
   sampleBuffer = myI2c.read_i2c_block_data(AK8963_ADDR, AK8963_REG_HXL, 6)
   myI2c.read_byte_data(AK8963_ADDR, AK8963_REG_ST2)
   return sampleBuffer
+  
+
   
 
   
