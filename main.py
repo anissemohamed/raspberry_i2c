@@ -1,14 +1,14 @@
-import time
-import sensor_AK8963
+from time import sleep
+from sensor_AK8963 import*
 
 
 while 1 :
   
   #Start AK8963
-  sensor_AK8963.AK8963_start()
+  AK8963_start()
 
   #Read sensor value
-  sampleBuffer = sensor_AK8963.AK8963_read()
+  sampleBuffer = AK8963_read()
   
   #Print data
   print "magX =",sampleBuffer[0] * 255 + sampleBuffer[1]
